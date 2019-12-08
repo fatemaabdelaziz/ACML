@@ -40,4 +40,16 @@ else{
 }
 })
 
+router.post('/userFavorites', async (req,res) =>
+{
+    let uid = req.body.uid;
+    let userFavorites =[]
+ await doc.where('uid','==',uid).get().then(snapshot =>{
+        snapshot.docs.map(oneElement =>{
+            userFavorites.push(oneElement.data().movieId)
+        })
+        return res.send({userFavorites})
+    })
+
+})
 module.exports =router;
