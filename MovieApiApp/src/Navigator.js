@@ -1,7 +1,7 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import LoginScreen from './screens/LoginScreen';
-import r from './App'
+
 
 
 const appSwitch = createSwitchNavigator({
