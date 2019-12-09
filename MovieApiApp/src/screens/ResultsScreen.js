@@ -4,10 +4,10 @@ import { View, SafeAreaView, Text, ScrollView, FlatList } from 'react-native';
 import SingleMovieView from '../components/SingleMovieView';
 
 class ResultsScreen extends Component {
-  
+
   renderItem({ item }) {
     return (
-      <SingleMovieView item={item}/>
+      <SingleMovieView item={item} />
     )
   }
   render() {
