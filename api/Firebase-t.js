@@ -1,7 +1,7 @@
 var firebase = require('firebase');
 
 var serviceAccount = require("./service-account-file.json");
-const dotenv = require('dotenv')
+let dotenv = require('dotenv')
 dotenv.config()
 
 module.exports = firebase.initializeApp({
