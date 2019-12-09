@@ -25,7 +25,7 @@ class LoginScreen extends Component {
             titleStyle={{ fontSize: 16, textTransform: 'uppercase', padding: 15, fontWeight: 'bold' }}
             buttonStyle={{ borderRadius: 90 }}
             containerStyle={{ marginTop: 20 }}
-            onPress={() => this.props.navigation.navigate('Auth')}
+            onPress={() => this.props.navigation.navigate('Home')}
           />
           <Button
             type='solid'
