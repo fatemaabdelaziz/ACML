@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Input, Button } from 'react-native-elements';
-import { View, SafeAreaView, Text, ScrollView } from 'react-native';
+import { View, SafeAreaView, Text, ScrollView, AsyncStorage } from 'react-native';
 import axios from 'axios';
+const STORAGE_KEY = '@uid';
 
 class SearchScreen extends Component {
   constructor(props) {
@@ -21,9 +22,10 @@ class SearchScreen extends Component {
       })
       .catch(err => console.log(err))
   }
-  onFavoritesPress() {
+  onFavoritesPress = async fav => {
     let favoriteMovies = [];
-    axios.post(`https://movie-back.herokuapp.com/favorites/userFavorites`, { "uid": "wbl9e8YpAWQtnNM62ik8JXlyAqE2" }).then(res => {
+    const uid = await AsyncStorage.getItem(STORAGE_KEY);
+    axios.post(`https://movie-back.herokuapp.com/favorites/userFavorites`, { "uid": uid }).then(res => {
       if (res.data.userFavorites.length > 0) {
         let userFavorites = res.data.userFavorites
         userFavorites.map(oneFav => {
@@ -42,7 +44,7 @@ class SearchScreen extends Component {
           data: favoriteMovies
         })
       }
-    })
+    }).catch(err => alert("Please check you internet connection"))
 
 
   }
