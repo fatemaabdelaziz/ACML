@@ -1,13 +1,13 @@
 {
-  "name": "api",
+  "name": "PopCorn",
   "version": "1.0.0",
-  "description": "",
+  "description": "Movie database where you can retreive movie by any title and add any movie you like to your favorites",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "",
+  "author": "Fatema Abdelaziz, Mariam Sadek, Yara Khalil",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
