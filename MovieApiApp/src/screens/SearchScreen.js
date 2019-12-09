@@ -24,14 +24,11 @@ class SearchScreen extends Component {
   onFavoritesPress() {
     let favoriteMovies = [];
     axios.post(`https://movie-back.herokuapp.com/favorites/userFavorites`, { "uid": "wbl9e8YpAWQtnNM62ik8JXlyAqE2" }).then(res => {
-      console.log({ "HERE: ": res.data.userFavorites.length > 0 })
       if (res.data.userFavorites.length > 0) {
         let userFavorites = res.data.userFavorites
-        console.log(userFavorites)
         userFavorites.map(oneFav => {
           axios.get(`https://api.themoviedb.org/3/movie/${oneFav}?api_key=8563a98bf612db1aa0f03cc509a04722&language=en-US`)
             .then(res => {
-              console.log(res.data)
               favoriteMovies.push(res.data)
             })
             .catch(err => console.log(err))
